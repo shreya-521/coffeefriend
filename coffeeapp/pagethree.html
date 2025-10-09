@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>coffeefriend • pairings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script defer src="script.js"></script>
+    <meta name="theme-color" content="#e7e2d8">
+</head>
+<body>
+    <div class="coffee-bg" aria-hidden="true"></div>
+    <div class="texture"></div>
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-mark" aria-hidden="true">✿</span>
+            <span class="brand-name">coffeefriend</span>
+        </div>
+        <nav>
+            <a class="btn btn-outline" href="pagetwo.html">← Back</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle dusk mode">dusk</button>
+    </header>
+
+    <main class="content">
+        <section class="hero card">
+            <h1>Pairings that love coffee</h1>
+            <p class="tagline">Cookies, pastries, and treats by coffee strength.</p>
+        </section>
+
+        <section class="recipes card" aria-labelledby="pairings-title">
+            <h2 id="pairings-title">Recommended pairings</h2>
+            <div class="filters" role="tablist" aria-label="Coffee strength filters">
+                <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+                <button class="chip" role="tab" aria-selected="false" data-filter="mild">Mild</button>
+                <button class="chip" role="tab" aria-selected="false" data-filter="medium">Medium</button>
+                <button class="chip" role="tab" aria-selected="false" data-filter="strong">Strong</button>
+            </div>
+            <div class="recipe-grid">
+                <article class="recipe" data-category="mild">
+                    <h3>Butter Cookies</h3>
+                    <ul class="meta"><li>Mild</li><li>Buttery, delicate</li></ul>
+                    <p>Pairs well with latte and cappuccino; balances gentle coffee with sweetness.</p>
+                </article>
+                <article class="recipe" data-category="mild">
+                    <h3>Madeleines</h3>
+                    <ul class="meta"><li>Mild</li><li>Light sponge</li></ul>
+                    <p>Soft citrus notes complement milk-forward coffees.</p>
+                </article>
+                <article class="recipe" data-category="medium">
+                    <h3>Almond Croissant</h3>
+                    <ul class="meta"><li>Medium</li><li>Nutty, rich</li></ul>
+                    <p>Great with flat white or Americano; nutty sweetness meets balanced strength.</p>
+                </article>
+                <article class="recipe" data-category="medium">
+                    <h3>Banana Bread</h3>
+                    <ul class="meta"><li>Medium</li><li>Moist, warm spices</li></ul>
+                    <p>Pairs with drip or pour-over; spices highlight coffee aromatics.</p>
+                </article>
+                <article class="recipe" data-category="strong">
+                    <h3>Dark Chocolate Biscotti</h3>
+                    <ul class="meta"><li>Strong</li><li>Crunchy, intense</li></ul>
+                    <p>Built for espresso and ristretto; bold chocolate stands up to intensity.</p>
+                </article>
+                <article class="recipe" data-category="strong">
+                    <h3>Tiramisu</h3>
+                    <ul class="meta"><li>Strong</li><li>Coffee-forward dessert</li></ul>
+                    <p>Echoes espresso flavors; a classic pairing for robust shots.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <small>Made with care and cinnamon.</small>
+    </footer>
+
+</body>
+</html>
+
+

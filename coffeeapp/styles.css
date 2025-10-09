@@ -1,0 +1,264 @@
+/* Coffee palette - crema, latte, mocha, espresso */
+:root {
+  --bg: #b0823c;           /* crema background */
+  --paper: #f3debc;        /* foam card */
+  --ink: #3b2f2f;          /* espresso text */
+  --muted: #8a6f5b;        /* latte captions */
+  --sage: #c8893a;         /* caramel accent */
+  --sage-deep: #8a5a2b;    /* toffee accent */
+  --blush: #c37b59;        /* cinnamon */
+  --honey: #d7a86e;        /* caramel drizzle */
+  --shadow: 34, 28, 21;    /* rgba base */
+}
+
+/* Dusk theme toggle */
+html.dusk {
+  --bg: #1a1410;          /* dark roast */
+  --paper: #231b15;       /* mocha card */
+  --ink: #efe6dc;         /* crema text */
+  --muted: #b08a6a;       /* warm latte */
+  --sage: #b37639;        /* caramel */
+  --sage-deep: #8f582c;   /* toffee */
+  --blush: #b56e4e;       /* cinnamon */
+  --honey: #c6955a;       /* caramel drizzle */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(var(--shadow),0.08) 1px, transparent 1px),
+    radial-gradient(rgba(var(--shadow),0.05) 1px, transparent 1px),
+    linear-gradient(45deg, transparent 40%, rgba(var(--shadow),0.02) 50%, transparent 60%);
+  background-position: 0 0, 12px 12px, 0 0;
+  background-size: 24px 24px, 24px 24px, 60px 60px;
+  mix-blend-mode: multiply;
+}
+
+/* Subtle coffee photo background (transparent look) */
+.coffee-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.08; /* transparency control */
+  background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop'); /* hot coffee */
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.85) contrast(0.95);
+}
+html.dusk .coffee-bg { opacity: 0.06; filter: saturate(0.8) brightness(0.8) contrast(0.9); }
+
+.site-header, .site-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-mark { color: var(--blush); filter: drop-shadow(0 1px 0 rgba(var(--shadow),0.1)); }
+.brand-name {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  letter-spacing: 0.3px;
+}
+
+.theme-toggle {
+  appearance: none;
+  border: 1px solid color-mix(in oklab, var(--ink) 30%, transparent);
+  background: linear-gradient(180deg, color-mix(in oklab, var(--paper) 94%, var(--bg) 6%), var(--paper));
+  color: var(--ink);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease;
+  box-shadow: 0 1px 2px rgba(var(--shadow),0.15), 0 6px 18px rgba(var(--shadow),0.08);
+}
+.theme-toggle:hover { transform: translateY(-1px); }
+.theme-toggle:active { transform: translateY(0); }
+
+.content {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 12px 16px 48px;
+}
+
+.card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 
+    0 1px 3px rgba(var(--shadow),0.15), 
+    0 8px 32px rgba(var(--shadow),0.12),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.card.subtle { background: color-mix(in oklab, var(--paper) 92%, var(--bg) 8%); }
+
+.hero h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  margin: 0 0 6px;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+}
+.tagline { margin: 0 0 16px; color: var(--muted); font-size: 18px; }
+
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 8px; }
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 1px 2px rgba(var(--shadow),0.15), 0 10px 24px rgba(var(--shadow),0.08);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary { background: var(--sage); color: #142014; border-color: color-mix(in oklab, var(--sage) 60%, var(--ink) 10%); }
+.btn-primary:hover { background: var(--sage-deep); }
+.btn-outline { background: transparent; color: var(--ink); border-color: color-mix(in oklab, var(--ink) 20%, transparent); }
+
+.dropdown { position: relative; display: inline-block; }
+.dropdown-toggle { position: relative; z-index: 2; }
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 260px;
+  background: var(--paper);
+  border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 6px 24px rgba(var(--shadow),0.12);
+  display: none;
+}
+.dropdown.open .dropdown-menu { display: block; animation: fadeIn .15s ease-out; }
+.dropdown-item { display: block; padding: 10px 12px; border-radius: 8px; color: var(--ink); text-decoration: none; }
+.dropdown-item:hover { background: color-mix(in oklab, var(--paper) 86%, var(--bg) 14%); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: translateY(0); } }
+
+.notes {
+  margin: 16px 0 0;
+  padding: 10px 12px;
+  background: color-mix(in oklab, var(--paper) 86%, var(--bg) 14%);
+  border-radius: 12px;
+  border: 1px dashed color-mix(in oklab, var(--ink) 18%, transparent);
+}
+.notes li { margin: 4px 0; }
+
+.social .social-link {
+  color: var(--sage-deep);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--sage-deep) 60%, transparent);
+  padding-bottom: 2px;
+}
+.social .social-link:hover { color: var(--sage); }
+
+.site-footer {
+  justify-content: center;
+  color: var(--muted);
+}
+
+/* Recipes */
+.recipes h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  margin: 0 0 4px;
+}
+.recipes-sub { margin: 0 0 14px; color: var(--muted); }
+
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 16px; }
+.chip {
+  appearance: none;
+  border: 1px solid color-mix(in oklab, var(--ink) 15%, transparent);
+  background: color-mix(in oklab, var(--paper) 92%, var(--bg) 8%);
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip.is-active { border-color: var(--sage); background: color-mix(in oklab, var(--sage) 20%, var(--paper) 80%); }
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.recipe {
+  background: color-mix(in oklab, var(--paper) 96%, var(--bg) 4%);
+  border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
+  border-radius: 14px;
+  padding: 14px;
+}
+.recipe h3 { margin: 0 0 6px; font-family: "Playfair Display", Georgia, serif; }
+.recipe .meta { list-style: none; padding: 0; margin: 0 0 8px; color: var(--muted); display: flex; gap: 10px; font-size: 13px; }
+.recipe details { margin-top: 6px; }
+
+/* Decorative vines */
+.vines {
+  position: absolute;
+  inset: -8px -8px auto auto;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+}
+.leaf {
+  position: absolute;
+  width: 16px; height: 16px;
+  border-radius: 999px 999px 999px 0;
+  transform: rotate(45deg);
+  background: var(--sage);
+  opacity: .9;
+  box-shadow: 0 2px 4px rgba(var(--shadow),0.1);
+}
+.leaf-1 { top: 16px; right: 24px; }
+.leaf-2 { top: 52px; right: 68px; transform: rotate(20deg); }
+.leaf-3 { top: 88px; right: 20px; transform: rotate(72deg); }
+
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+@media (min-width: 720px) {
+  .hero { padding: 40px; }
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 720px) {
+  .site-header, .site-footer { padding: 12px 14px; }
+  .brand-name { font-size: 18px; }
+  .content { padding: 8px 12px 28px; }
+  .card { padding: 20px; }
+  .hero h1 { font-size: clamp(22px, 8vw, 34px); }
+  .tagline { font-size: 16px; }
+  .actions { flex-direction: column; gap: 10px; }
+  .actions .btn, .dropdown { width: 100%; }
+  .btn { padding: 12px 16px; }
+  .dropdown-menu { left: 0; right: auto; min-width: 100%; }
+  .filters { gap: 6px; }
+  .chip { padding: 8px 12px; }
+  .recipe-grid { grid-template-columns: 1fr; }
+  .notes { font-size: 14px; }
+}
+
+
