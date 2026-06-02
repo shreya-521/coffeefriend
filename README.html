@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CoffeeFriend PWA - Documentation Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .doc-card {
+            background: color-mix(in oklab, var(--paper) 96%, var(--bg) 4%);
+            border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
+            border-radius: 14px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        .doc-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(var(--shadow),0.12);
+        }
+        .doc-card h3 {
+            margin: 0 0 10px;
+            font-family: "Playfair Display", Georgia, serif;
+            color: var(--sage-deep);
+            font-size: 18px;
+        }
+        .doc-card .emoji {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .doc-card p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .doc-card a {
+            display: inline-block;
+            margin-top: 12px;
+            color: var(--sage-deep);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--sage-deep);
+            padding-bottom: 2px;
+        }
+        .doc-card a:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+        }
+        .section-title {
+            font-family: "Playfair Display", Georgia, serif;
+            margin: 28px 0 16px;
+            font-size: 24px;
+            color: var(--ink);
+            border-bottom: 2px solid var(--sage);
+            padding-bottom: 8px;
+        }
+        .info-box {
+            background: color-mix(in oklab, var(--sage) 15%, var(--paper) 85%);
+            border-left: 4px solid var(--sage);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .info-box strong {
+            color: var(--sage-deep);
+        }
+        .quick-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+    </style>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="coffee-bg" aria-hidden="true"></div>
+    <div class="texture"></div>
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-mark" aria-hidden="true">✿</span>
+            <span class="brand-name">CoffeeFriend</span>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Toggle dusk mode">dusk</button>
+    </header>
+
+    <main class="content">
+        <section class="card">
+            <h1 style="font-family: 'Playfair Display', Georgia, serif; margin: 0 0 12px; font-size: clamp(28px, 4vw, 44px);">
+                📖 CoffeeFriend PWA Documentation Hub
+            </h1>
+            <p style="margin: 0 0 16px; color: var(--muted); font-size: 16px;">
+                Everything you need to understand, deploy, and use your Progressive Web App.
+            </p>
+
+            <div class="info-box">
+                <strong>🎉 Your app is ready!</strong> It's now a mobile-installable PWA with offline functionality. Choose a guide below to get started.
+            </div>
+
+            <div class="section-title">⚡ Quick Reference</div>
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="emoji">🚀</div>
+                    <h3>Quick Start</h3>
+                    <p>2-minute overview for developers. What changed? What do I do next?</p>
+                    <a href="QUICK_START.md">Read Quick Start</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="emoji">✅</div>
+                    <h3>Setup Verification</h3>
+                    <p>Complete checklist. Verify all files are in place & ready for deployment.</p>
+                    <a href="SETUP_VERIFICATION.md">View Checklist</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="emoji">📱</div>
+                    <h3>User Installation Guide</h3>
+                    <p>Share with end users. Step-by-step iOS & Android installation instructions.</p>
+                    <a href="MOBILE_SETUP.md">Share with Users</a>
+                </div>
+            </div>
+
+            <div class="section-title">📚 Complete Documentation</div>
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="emoji">📖</div>
+                    <h3>Implementation Summary</h3>
+                    <p>Full project overview. What was created, how it works, deployment steps, testing checklist.</p>
+                    <a href="IMPLEMENTATION_SUMMARY.md">Read Full Summary</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="emoji">🎨</div>
+                    <h3>Visual Guide</h3>
+                    <p>Diagrams & flowcharts. User journey, technical architecture, offline flows, comparisons.</p>
+                    <a href="VISUAL_GUIDE.md">View Diagrams</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="emoji">🔧</div>
+                    <h3>Technical Documentation</h3>
+                    <p>For developers. PWA mechanics, caching strategy, customization, troubleshooting, browser support.</p>
+                    <a href="PWA_README.md">Technical Details</a>
+                </div>
+            </div>
+
+            <div class="section-title">🎯 Common Questions</div>
+            
+            <div style="background: color-mix(in oklab, var(--paper) 86%, var(--bg) 14%); border-radius: 12px; padding: 16px; margin: 16px 0;">
+                <strong>"I'm a user. How do I install the app?"</strong>
+                <p style="margin: 8px 0; color: var(--muted);">
+                    👉 <a href="MOBILE_SETUP.md" style="color: var(--sage-deep); text-decoration: underline;">Read MOBILE_SETUP.md</a> for step-by-step iOS & Android instructions.
+                </p>
+            </div>
+
+            <div style="background: color-mix(in oklab, var(--paper) 86%, var(--bg) 14%); border-radius: 12px; padding: 16px; margin: 16px 0;">
+                <strong>"I'm deploying the app. What do I do?"</strong>
+                <p style="margin: 8px 0; color: var(--muted);">
+                    👉 Read <a href="PWA_README.md" style="color: var(--sage-deep); text-decoration: underline;">PWA_README.md → Deployment Recommendations</a> section, then check <a href="SETUP_VERIFICATION.md" style="color: var(--sage-deep); text-decoration: underline;">SETUP_VERIFICATION.md</a>.
+                </p>
+            </div>
+
+            <div style="background: color-mix(in oklab, var(--paper) 86%, var(--bg) 14%); border-radius: 12px; padding: 16px; margin: 16px 0;">
+                <strong>"I want to understand how it works."</strong>
+                <p style="margin: 8px 0; color: var(--muted);">
+                    👉 Start with <a href="VISUAL_GUIDE.md" style="color: var(--sage-deep); text-decoration: underline;">VISUAL_GUIDE.md</a> for diagrams, then read <a href="PWA_README.md" style="color: var(--sage-deep); text-decoration: underline;">PWA_README.md → How It Works</a>.
+                </p>
+            </div>
+
+            <div style="background: color-mix(in oklab, var(--paper) 86%, var(--bg) 14%); border-radius: 12px; padding: 16px; margin: 16px 0;">
+                <strong>"What was created? What changed?"</strong>
+                <p style="margin: 8px 0; color: var(--muted);">
+                    👉 <a href="IMPLEMENTATION_SUMMARY.md" style="color: var(--sage-deep); text-decoration: underline;">IMPLEMENTATION_SUMMARY.md</a> has all the details. Also check <a href="QUICK_START.md" style="color: var(--sage-deep); text-decoration: underline;">QUICK_START.md</a>.
+                </p>
+            </div>
+
+            <div class="section-title">📊 File Structure</div>
+            <div style="background: color-mix(in oklab, var(--paper) 92%, var(--bg) 8%); border-radius: 12px; padding: 16px; font-family: monospace; font-size: 13px; line-height: 1.6; overflow-x: auto;">
+                <div>coffeeapp/</div>
+                <div style="margin-left: 20px;">
+                    <div>📄 pageone.html (Home)</div>
+                    <div>📄 pagetwo.html (Coffee Mood)</div>
+                    <div>📄 pagethree.html (Pairings)</div>
+                    <div>📄 pagefour.html (Fun Facts)</div>
+                    <div>🎨 styles.css (Responsive design)</div>
+                    <div>⚙️ script.js (Interactions)</div>
+                    <div style="margin-top: 8px;"><strong>NEW FILES:</strong></div>
+                    <div>🎯 manifest.json (PWA config)</div>
+                    <div>📦 sw.js (Offline caching)</div>
+                    <div>🚀 install.html (Installation guide)</div>
+                    <div style="margin-top: 8px;"><strong>DOCUMENTATION:</strong></div>
+                    <div>📖 QUICK_START.md</div>
+                    <div>📖 IMPLEMENTATION_SUMMARY.md</div>
+                    <div>📖 SETUP_VERIFICATION.md</div>
+                    <div>📖 VISUAL_GUIDE.md</div>
+                    <div>📖 PWA_README.md</div>
+                    <div>📖 MOBILE_SETUP.md</div>
+                </div>
+            </div>
+
+            <div class="section-title">🚀 Next Steps</div>
+            <div class="quick-links">
+                <a class="btn btn-primary" href="install.html">📱 User Installation Guide</a>
+                <a class="btn btn-outline" href="QUICK_START.md">⚡ Quick Start</a>
+                <a class="btn btn-outline" href="IMPLEMENTATION_SUMMARY.md">📖 Full Overview</a>
+            </div>
+
+            <div class="info-box" style="margin-top: 28px;">
+                <strong>🌐 Deployment Reminder:</strong> Your app needs HTTPS to work as a PWA. Use Let's Encrypt for free SSL certificates. After deploying, share the <strong>install.html</strong> URL with users.
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <small>CoffeeFriend PWA • Mobile-first, offline-capable, efficient.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>coffeefriend • menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#b0823c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="coffeefriend">
+    <script defer src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
+</head>
+<body>
+    <div class="coffee-bg" aria-hidden="true"></div>
+    <div class="texture"></div>
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-mark" aria-hidden="true">✿</span>
+            <span class="brand-name">coffeefriend</span>
+        </div>
+        <nav>
+            <a class="btn btn-outline" href="pageone.html">← Back</a>
+        </nav>
+        <button id="install-app" class="btn btn-primary" type="button" style="display:none;">Install app</button>
+        <button class="theme-toggle" type="button" aria-label="Toggle dusk mode">dusk</button>
+    </header>
+
+    <main class="content">
+        <section class="hero card">
+            <h1>Our Coffee Menu</h1>
+            <p class="tagline">How would you like your coffee today?</p>
+        </section>
+
+        <section class="recipes card" aria-labelledby="recipes-title">
+            <h2 id="recipes-title">How would you like your coffee today?</h2>
+            <p class="recipes-sub">Browse recipes by strength and style.</p>
+            <div class="filters" role="tablist" aria-label="Coffee strength filters">
+                <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+                <button class="chip" role="tab" aria-selected="false" data-filter="mild-coffee">Mild coffee</button>
+                <button class="chip" role="tab" aria-selected="false" data-filter="mild-coffees">Medium coffee</button>
+                <button class="chip" role="tab" aria-selected="false" data-filter="very-strong">Very strong coffee</button>
+            </div>
+            <div class="recipe-grid">
+                <article class="recipe" data-category="mild-coffee">
+                    <h3>Latte</h3>
+                    <ul class="meta"><li>Category: Mild coffee</li><li>Time: 5 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 shot espresso</li>
+                            <li>200 ml steamed milk</li>
+                            <li>Foamed milk to top</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Pull a single espresso shot into a cup.</li>
+                            <li>Steam milk until silky microfoam forms.</li>
+                            <li>Pour milk into espresso, holding back foam, then finish with a spoon of foam.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="mild-coffees">
+                    <h3>Cappuccino</h3>
+                    <ul class="meta"><li>Category: Mild coffees</li><li>Time: 5 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 shot espresso</li>
+                            <li>60 ml steamed milk</li>
+                            <li>60 ml milk foam</li>
+                            <li>Cocoa or cinnamon (optional)</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Pull an espresso shot.</li>
+                            <li>Steam milk to medium foam.</li>
+                            <li>Pour equal parts espresso, steamed milk, and foam. Dust with spice.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="mild-coffees">
+                    <h3>Flat White</h3>
+                    <ul class="meta"><li>Category: Mild coffees</li><li>Time: 5 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 double shot espresso</li>
+                            <li>120 ml steamed milk (fine microfoam)</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Pull a double espresso.</li>
+                            <li>Steam milk to a fine, glossy microfoam.</li>
+                            <li>Pour milk to create a thin, velvety layer.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="very-strong">
+                    <h3>Espresso</h3>
+                    <ul class="meta"><li>Category: Very strong coffee</li><li>Time: 2 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>18 g finely ground coffee</li>
+                            <li>Water at 93°C</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Distribute and tamp grounds evenly.</li>
+                            <li>Pull 25–30 seconds for ~36 g out.</li>
+                            <li>Serve immediately.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="very-strong">
+                    <h3>Ristretto</h3>
+                    <ul class="meta"><li>Category: Very strong coffee</li><li>Time: 2 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>18 g finely ground coffee</li>
+                            <li>Water at 93°C</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Prepare as espresso.</li>
+                            <li>Stop extraction earlier at ~20–25 g yield for intense flavor.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <!-- Additional Mild coffee options -->
+                <article class="recipe" data-category="mild-coffee">
+                    <h3>Mocha</h3>
+                    <ul class="meta"><li>Category: Mild coffee</li><li>Time: 6 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 shot espresso</li>
+                            <li>150 ml steamed milk</li>
+                            <li>20 g chocolate syrup or cocoa</li>
+                            <li>Whipped cream (optional)</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Stir chocolate into espresso.</li>
+                            <li>Add steamed milk and mix gently.</li>
+                            <li>Top with whipped cream if desired.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="mild-coffee">
+                    <h3>Café au Lait</h3>
+                    <ul class="meta"><li>Category: Mild coffee</li><li>Time: 4 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 cup hot brewed coffee</li>
+                            <li>1 cup steamed milk</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Brew filter coffee.</li>
+                            <li>Steam milk until hot and slightly foamy.</li>
+                            <li>Combine equal parts coffee and milk.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <!-- Additional Medium coffee options -->
+                <article class="recipe" data-category="mild-coffees">
+                    <h3>Americano</h3>
+                    <ul class="meta"><li>Category: Medium coffee</li><li>Time: 3 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 shot espresso</li>
+                            <li>120–180 ml hot water</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Pour hot water into a cup.</li>
+                            <li>Add espresso on top to preserve crema.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="mild-coffees">
+                    <h3>Cortado</h3>
+                    <ul class="meta"><li>Category: Medium coffee</li><li>Time: 3 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 shot espresso</li>
+                            <li>1 shot steamed milk</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Pull an espresso shot.</li>
+                            <li>Steam a small amount of milk (minimal foam).</li>
+                            <li>Combine 1:1 milk to espresso.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <!-- Additional Very strong coffee options -->
+                <article class="recipe" data-category="very-strong">
+                    <h3>Doppio</h3>
+                    <ul class="meta"><li>Category: Very strong coffee</li><li>Time: 3 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>18–20 g finely ground coffee</li>
+                            <li>Water at 93°C</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Pull a double espresso shot (~36–40 g out in ~25–30 s).</li>
+                            <li>Serve in a prewarmed demitasse.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="very-strong">
+                    <h3>Moka Pot</h3>
+                    <ul class="meta"><li>Category: Very strong coffee</li><li>Time: 6–8 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>Medium-fine ground coffee</li>
+                            <li>Water (fill bottom chamber to valve)</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Fill base with hot water; add grounds to basket (level, untamped).</li>
+                            <li>Assemble and brew on medium heat until you hear a gentle gurgle.</li>
+                            <li>Remove from heat and serve immediately.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <!-- Additional items -->
+                <article class="recipe" data-category="mild-coffee">
+                    <h3>Iced Latte</h3>
+                    <ul class="meta"><li>Category: Mild coffee</li><li>Time: 3 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 shot espresso (cooled)</li>
+                            <li>150 ml cold milk</li>
+                            <li>Ice cubes</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Fill a glass with ice.</li>
+                            <li>Add cold milk, then pour espresso over.</li>
+                            <li>Stir gently.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="mild-coffee">
+                    <h3>Caramel Latte</h3>
+                    <ul class="meta"><li>Category: Mild coffee</li><li>Time: 6 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 shot espresso</li>
+                            <li>180 ml steamed milk</li>
+                            <li>2 tsp caramel sauce</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Stir caramel into espresso.</li>
+                            <li>Add steamed milk and mix.</li>
+                            <li>Optional: drizzle more caramel on top.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="mild-coffees">
+                    <h3>Long Black</h3>
+                    <ul class="meta"><li>Category: Medium coffee</li><li>Time: 3 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>1 double espresso</li>
+                            <li>120 ml hot water</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Add hot water to a cup.</li>
+                            <li>Pour double espresso over to preserve crema.</li>
+                        </ol>
+                    </details>
+                </article>
+
+                <article class="recipe" data-category="very-strong">
+                    <h3>Lungo</h3>
+                    <ul class="meta"><li>Category: Very strong coffee</li><li>Time: 3–4 min</li></ul>
+                    <details>
+                        <summary>Ingredients</summary>
+                        <ul>
+                            <li>18 g finely ground coffee</li>
+                            <li>Water at 93°C</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Steps</summary>
+                        <ol>
+                            <li>Pull a longer espresso (~50–60 g out).</li>
+                            <li>Expect a more bitter, intense cup.</li>
+                        </ol>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        
+
+    </main>
+
+    <footer class="site-footer">
+        <small>Made with care and cinnamon.</small>
+    </footer>
+
+</body>
+</html>
+
+
